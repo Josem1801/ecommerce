@@ -32,6 +32,7 @@
         "extensions": [".ts", ".tsx"]
       }
     ], //should add ".ts" if typescript project
-    "react/display-name": 1
+    "react/display-name": 1,
+    "linebreak-style": 0
   }
 }
