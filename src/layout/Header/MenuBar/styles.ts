@@ -41,9 +41,10 @@ export const NavBar = styled.nav`
   }
 `;
 export const AsideNavBar = styled.aside<{ isMenuActive: boolean }>`
-  position: absolute;
+  position: fixed;
   font-size: 16px;
   font-weight: 600;
+
   right: ${({ isMenuActive }) => (isMenuActive ? 0 : '-100%')};
   top: 0;
   width: 350px;

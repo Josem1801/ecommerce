@@ -6,6 +6,9 @@ const HeaderContainer = styled.header<TextStylesType>`
   flex-direction: column;
   width: 100vw;
   height: auto;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
   color: ${({ theme }) => theme.colors.manatee};
   ${TextStyles}
   svg {
