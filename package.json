@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --silent=false",
+    "test": "jest --watch --silent=false",
     "test:ci": "jest --ci",
     "prepare": "husky install",
     "prettier": "prettier --write .",
@@ -27,6 +27,7 @@
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-icons": "^4.3.1",
     "react-query": "^3.38.0",
     "styled-components": "^5.3.5"
   },
