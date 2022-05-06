@@ -3,11 +3,12 @@ import normalize from './normalice';
 
 const GlobalStyles = createGlobalStyle`
   ${normalize}
-  body{
-    overflow: hidden;
-  }
+  
   *{
     box-sizing: border-box;
+  }
+  body{
+    font-family: 'Poppins', sans-serif;
   }
 `;
 

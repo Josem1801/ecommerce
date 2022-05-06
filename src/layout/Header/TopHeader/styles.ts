@@ -5,6 +5,7 @@ export const HeaderInfo = styled.div`
   display: flex;
   align-items: center;
   column-gap: 24px;
+  min-height: 60px;
   width: fit-content;
 `;
 export const HeaderUserMenu = styled.div`
@@ -28,7 +29,6 @@ export const FlexContainer = styled.div<{ gap?: number | undefined }>`
 
 export const MaxWidthContainer = styled(MaxWidth)`
   display: flex;
-  padding: 0 10px;
   align-items: center;
   flex-direction: column;
   row-gap: 15px;

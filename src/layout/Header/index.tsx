@@ -4,7 +4,7 @@ import TopHeader from './TopHeader';
 
 export default function Header() {
   return (
-    <HeaderContainer>
+    <HeaderContainer fontVariant="bodySmall">
       <TopHeader />
       <MenuBar />
     </HeaderContainer>
