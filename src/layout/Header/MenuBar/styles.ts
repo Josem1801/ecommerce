@@ -79,7 +79,6 @@ export const MenuContainer = styled(MaxWidth)`
   align-items: center;
   justify-content: space-between;
   column-gap: 50px;
-  padding: 0 10px;
   svg {
     cursor: pointer;
     font-size: 23px;
