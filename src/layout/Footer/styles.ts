@@ -11,6 +11,7 @@ export const JustifyBetweenContent = styled.section<{
   middle?: boolean | undefined;
   rowGap?: number | undefined;
 }>`
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -31,6 +32,7 @@ export const FooterMaxWidthContainer = styled(MaxWidth)`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
 `;
 
 export const SubscribeTitle = styled.div<HeaderStylesTypes>`
@@ -63,7 +65,6 @@ export const NavColumn = styled.div`
 export const SocialMedia = styled.div`
   display: flex;
   align-items: center;
-  font-size: 20px;
   column-gap: 15px;
   margin-bottom: 18px;
   svg {
@@ -82,12 +83,16 @@ export const FooterContainer = styled.footer`
   width: 100%;
   padding-top: 70px;
   background: ${({ theme }) => theme.colors.shark};
+
   @media (${({ theme }) => theme.breakpoints.tablet}) {
     ${JustifyBetweenContent} {
       flex-direction: row;
     }
     ${NavigationContainer} {
       column-gap: 10px;
+    }
+    ${SocialMedia} {
+      margin-bottom: 0;
     }
   }
   @media (${({ theme }) => theme.breakpoints.laptop}) {
@@ -98,7 +103,6 @@ export const FooterContainer = styled.footer`
     height: 786px;
     ${SocialMedia} {
       min-height: 76px;
-      margin-bottom: 0;
     }
   }
 `;
