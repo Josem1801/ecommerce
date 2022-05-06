@@ -8,7 +8,7 @@ import SearchInput from 'components/SearchInput';
 import { FiHeart, FiShoppingCart } from 'react-icons/fi';
 import { RiUser3Line, RiCloseFill } from 'react-icons/ri';
 import { HiMenu } from 'react-icons/hi';
-import Logo from '../../../public/logo.png';
+import Logo from 'public/logo.png';
 import {
   AsideNavBar,
   IconWithCircle,

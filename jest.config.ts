@@ -6,6 +6,7 @@ export default {
       tsconfig: './tsconfig.jest.json',
     },
   },
+  modulePaths: ['<rootDir>/src/'],
   setupFilesAfterEnv: ['./src/jest.setup.ts'],
   coverageThreshold: {
     global: {
@@ -14,5 +15,9 @@ export default {
       lines: 100,
       statements: 100,
     },
+  },
+  moduleNameMapper: {
+    '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$':
+      'identity-obj-proxy',
   },
 };
