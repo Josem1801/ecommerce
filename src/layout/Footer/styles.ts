@@ -7,17 +7,24 @@ import {
 } from 'shared/styles';
 import styled from 'styled-components';
 
-export const JustifyBetweenContent = styled.section`
+export const JustifyBetweenContent = styled.section<{
+  middle?: boolean | undefined;
+  rowGap?: number | undefined;
+}>`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  row-gap: 30px;
-  padding-bottom: 72px;
-  margin-bottom: 100px;
+  row-gap: ${({ rowGap }) => rowGap || 30}px;
+  margin-top: ${({ middle }) => (middle ? 72 : 0)}px;
+  padding-top: ${({ middle }) => (middle ? 100 : 0)}px;
+  padding-bottom: ${({ middle }) => (middle ? 100 : 0)}px;
   column-gap: 20px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.manatee};
+  border-bottom: 1px solid
+    ${({ middle, theme }) => (middle ? theme.colors.manatee : 'trasnparent')};
+  border-top: 1px solid
+    ${({ middle, theme }) => (middle ? theme.colors.manatee : 'trasnparent')};
 `;
 
 export const FooterMaxWidthContainer = styled(MaxWidth)`
@@ -55,8 +62,10 @@ export const NavColumn = styled.div`
 `;
 export const SocialMedia = styled.div`
   display: flex;
+  align-items: center;
   font-size: 20px;
   column-gap: 15px;
+  margin-bottom: 18px;
   svg {
     color: ${({ theme }) => theme.colors.manatee};
   }
@@ -87,5 +96,9 @@ export const FooterContainer = styled.footer`
       width: auto;
     }
     height: 786px;
+    ${SocialMedia} {
+      min-height: 76px;
+      margin-bottom: 0;
+    }
   }
 `;

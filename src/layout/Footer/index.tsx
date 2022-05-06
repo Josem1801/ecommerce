@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
           <SubscribeInput />
         </JustifyBetweenContent>
-        <JustifyBetweenContent>
+        <JustifyBetweenContent middle>
           <div>
             <SubscribeTitle fontVariant="heading2">Commerce</SubscribeTitle>
             <FooterText fontVariant="bodySmall">
@@ -56,7 +56,7 @@ export default function Footer() {
             ))}
           </NavigationContainer>
         </JustifyBetweenContent>
-        <JustifyBetweenContent>
+        <JustifyBetweenContent rowGap={5}>
           <FooterText fontVariant="bodySmall">
             © 2022. Design by Zakir Soft and Developed by Jose Rosales
           </FooterText>
