@@ -73,7 +73,8 @@ export const AsideNavBar = styled.aside<{ isMenuActive: boolean }>`
     text-decoration: none;
   }
 `;
-export const MenuContainer = styled(MaxWidth)`
+export const MenuContainer = styled.div`
+  ${MaxWidth}
   overflow: hidden;
   height: 80px;
   display: flex;

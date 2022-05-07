@@ -21,7 +21,7 @@ export default function Layout({ children, title }: LayoutProps) {
       </Head>
 
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
     </>
   );
