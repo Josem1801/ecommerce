@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import { Button } from 'shared/styles';
 import {
@@ -8,7 +9,12 @@ import {
   Title,
 } from './styles';
 
-export default function Hero() {
+interface HeroProps {
+  image: string;
+  alt: string;
+}
+
+export default function Hero({ image, alt }: HeroProps) {
   return (
     <HeroContainer>
       <HeroDescription>
@@ -19,7 +25,9 @@ export default function Hero() {
         </Description>
         <Button>SHOP NOW</Button>
       </HeroDescription>
-      <HeroImage />
+      <HeroImage>
+        {image && <Image src={image} alt={alt} layout="fill" />}
+      </HeroImage>
     </HeroContainer>
   );
 }

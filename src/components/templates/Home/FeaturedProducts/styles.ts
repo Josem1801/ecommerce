@@ -6,6 +6,7 @@ export const FeaturedSection = styled.section`
   ${MaxWidth}
   display: flex;
   flex-direction: column;
+  margin: 100px auto;
 `;
 export const SliderContainer = styled.div`
   margin: 54px 0;

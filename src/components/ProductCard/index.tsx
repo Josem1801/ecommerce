@@ -1,28 +1,42 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { TextTypography } from 'shared/styles';
 import { ProductCardContainer, ProductImage } from './styles';
 
-export default function ProductCard() {
+interface ProductCardProps {
+  image: string;
+  title: string;
+  price: number;
+  categoryId: number;
+  id: number;
+}
+
+export default function ProductCard({
+  image,
+  title,
+  price,
+  id,
+  categoryId,
+}: ProductCardProps) {
   return (
     <ProductCardContainer>
       <ProductImage>
-        <Link href="/image" passHref>
-          <Image
-            src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-            alt="Image"
-            layout="fill"
-          />
+        <Link href={`/${categoryId}/${id}`} passHref>
+          <a>
+            <Image src={image} alt={title} layout="fill" />
+          </a>
         </Link>
       </ProductImage>
       <Link href="/image" passHref>
         <TextTypography fontVariant="bodyLarge" as="a" className="card__title">
-          Product name
+          {title}
         </TextTypography>
       </Link>
       <TextTypography fontVariant="bodyRegular" as="span">
-        $3000
+        $
+        {price}
       </TextTypography>
     </ProductCardContainer>
   );

@@ -23,10 +23,12 @@ export const HeroDescription = styled.div`
 `;
 
 export const HeroImage = styled.div`
+  position: relative;
   width: 100%;
   height: 566px;
   border-radius: 60px 8px 8px 8px;
   background-color: ${({ theme }) => theme.colors.galery};
+  overflow: hidden;
 `;
 export const HeroContainer = styled.section`
   ${MaxWidth}
