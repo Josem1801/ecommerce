@@ -27,7 +27,8 @@ export const FlexContainer = styled.div<{ gap?: number | undefined }>`
   gap: ${({ gap }) => gap || 1}px;
 `;
 
-export const MaxWidthContainer = styled(MaxWidth)`
+export const MaxWidthContainer = styled.div`
+  ${MaxWidth}
   display: flex;
   align-items: center;
   flex-direction: column;

@@ -28,7 +28,8 @@ export const JustifyBetweenContent = styled.section<{
     ${({ middle, theme }) => (middle ? theme.colors.manatee : 'trasnparent')};
 `;
 
-export const FooterMaxWidthContainer = styled(MaxWidth)`
+export const FooterMaxWidthContainer = styled.div`
+  ${MaxWidth}
   display: flex;
   flex-direction: column;
   width: 100%;
