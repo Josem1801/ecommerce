@@ -26,7 +26,9 @@ export default function Hero({ image, alt }: HeroProps) {
         <Button>SHOP NOW</Button>
       </HeroDescription>
       <HeroImage>
-        {image && <Image src={image} alt={alt} layout="fill" />}
+        {image && (
+          <Image src={image} alt={alt} layout="fill" objectFit="cover" />
+        )}
       </HeroImage>
     </HeroContainer>
   );

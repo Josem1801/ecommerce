@@ -12,62 +12,75 @@ import Logo from 'public/logo.png';
 import {
   AsideNavBar,
   IconWithCircle,
+  Menu,
   MenuContainer,
   NavBar,
   NumberCircle,
 } from './styles';
 import { FlexContainer } from '../TopHeader/styles';
 
-export default function MenuBar() {
+export default function MenuBar({ menuBarFixed }: { menuBarFixed?: boolean }) {
   const [activeMenu, setActiveMenu] = useState(false);
   const handleMenu = () => setActiveMenu(!activeMenu);
   return (
-    <MenuContainer>
-      <Image src={Logo} height="80" width="80" />
-      <NavBar>
-        <ul>
-          {navData.map(({ name, route }) => (
-            <li key={name}>
-              <Link href={route}>
-                <a>
-                  {name}
-                  {name === 'Category' && <IoIosArrowDown />}
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </NavBar>
-      <AsideNavBar isMenuActive={activeMenu}>
-        <RiCloseFill onClick={handleMenu} />
+    <MenuContainer fixed={menuBarFixed}>
+      <Menu>
+        <div>
+          <Image
+            src={Logo}
+            height="80"
+            width="80"
+            layout="fixed"
+            alt="Ecommerce"
+          />
+        </div>
+        <NavBar>
+          <ul>
+            {navData.map(({ name, route }) => (
+              <li key={name}>
+                <Link href={route}>
+                  <a>
+                    {name}
+                    {name === 'Category' && <IoIosArrowDown />}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </NavBar>
+        <AsideNavBar isMenuActive={activeMenu}>
+          <RiCloseFill onClick={handleMenu} />
 
-        <ul>
-          {navData.map(({ name, route }) => (
-            <li key={name}>
-              <Link href={route}>
-                <a>
-                  {name}
-                  {name === 'Category' && <IoIosArrowDown />}
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </AsideNavBar>
-      <SearchInput />
-      <FlexContainer gap={22}>
-        <FiHeart />
-        <IconWithCircle>
-          <FiShoppingCart />
-          <NumberCircle>3</NumberCircle>
-        </IconWithCircle>
-        <RiUser3Line />
-        <HiMenu onClick={handleMenu} className="menu" />
-      </FlexContainer>
+          <ul>
+            {navData.map(({ name, route }) => (
+              <li key={name}>
+                <Link href={route}>
+                  <a>
+                    {name}
+                    {name === 'Category' && <IoIosArrowDown />}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </AsideNavBar>
+        <SearchInput />
+        <FlexContainer gap={22}>
+          <FiHeart />
+          <IconWithCircle>
+            <FiShoppingCart />
+            <NumberCircle>3</NumberCircle>
+          </IconWithCircle>
+          <RiUser3Line />
+          <HiMenu onClick={handleMenu} className="menu" />
+        </FlexContainer>
+      </Menu>
     </MenuContainer>
   );
 }
-
+MenuBar.defaultProps = {
+  menuBarFixed: false,
+};
 const navData = [
   {
     name: 'Home',

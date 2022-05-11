@@ -2,9 +2,10 @@ import { TextStyles, TextStylesType } from 'shared/styles';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header<TextStylesType>`
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 80px;
+  grid-template-columns: 100%;
   height: auto;
   position: relative;
   overflow-x: hidden;

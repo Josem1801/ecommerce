@@ -7,7 +7,12 @@ export const ProductImage = styled.div`
   overflow: hidden;
   width: 100%;
   height: 80vw;
+  background: white;
   cursor: pointer;
+  img {
+    object-fit: cover;
+    object-position: center;
+  }
 `;
 export const ProductCardContainer = styled.div`
   display: flex;
@@ -36,23 +41,26 @@ export const ProductCardContainer = styled.div`
   @media (${({ theme }) => theme.breakpoints.tablet}) {
     margin: 0 auto;
     padding: 0;
-    width: fit-content;
+    max-width: 157px;
     ${ProductImage} {
       width: 157px;
       height: 144px;
-      max-height: none;
+      max-height: 144px;
     }
   }
   @media (${({ theme }) => theme.breakpoints.laptop}) {
+    max-width: fit-content;
     ${ProductImage} {
       width: 290px;
       height: 266px;
+      max-height: 266px;
     }
   }
   @media (${({ theme }) => theme.breakpoints.laptopL}) {
     ${ProductImage} {
       width: 360px;
       height: 330px;
+      max-height: none;
     }
   }
 `;

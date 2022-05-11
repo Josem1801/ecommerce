@@ -14,8 +14,8 @@ export default function CategoryProducts({
     <CateogryProductsContainer>
       <SectionTitle> Shop with top categorys </SectionTitle>
       <ItemsGrid>
-        {categories.map((props) => (
-          <CategoryItem {...props} />
+        {categories.map((props: ProductCategory) => (
+          <CategoryItem {...props} key={props.id} />
         ))}
       </ItemsGrid>
     </CateogryProductsContainer>

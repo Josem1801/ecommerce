@@ -9,7 +9,7 @@ interface ProductCardProps {
   image: string;
   title: string;
   price: number;
-  categoryId: number;
+  categoryName: string;
   id: number;
 }
 
@@ -18,25 +18,24 @@ export default function ProductCard({
   title,
   price,
   id,
-  categoryId,
+  categoryName,
 }: ProductCardProps) {
   return (
     <ProductCardContainer>
       <ProductImage>
-        <Link href={`/${categoryId}/${id}`} passHref>
+        <Link href={`/${categoryName}/${id}`} passHref>
           <a>
             <Image src={image} alt={title} layout="fill" />
           </a>
         </Link>
       </ProductImage>
-      <Link href="/image" passHref>
+      <Link href={`/${categoryName}/${id}`} passHref>
         <TextTypography fontVariant="bodyLarge" as="a" className="card__title">
           {title}
         </TextTypography>
       </Link>
       <TextTypography fontVariant="bodyRegular" as="span">
-        $
-        {price}
+        ${price}
       </TextTypography>
     </ProductCardContainer>
   );

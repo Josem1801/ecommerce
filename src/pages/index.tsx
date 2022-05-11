@@ -4,7 +4,7 @@ import FeaturedProducts from 'components/templates/Home/FeaturedProducts';
 import Hero from 'components/templates/Home/Hero';
 import PopularProducts from 'components/templates/Home/PopularProducts';
 import Layout from 'layout/Layout';
-import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import getProductsCategories, {
   ProductCategory,
 } from 'services/getProdcutsCategorys';
@@ -15,7 +15,7 @@ interface HomeProps {
   popularProducts: Product[];
   productsCategories: ProductCategory[];
 }
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const featuredProducts = await getProductsList();
   const popularProducts = await getProductsList({ offset: 10, limit: 9 });
   const productsCategories = await getProductsCategories();
@@ -27,11 +27,12 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     },
   };
 };
+
 export default function Home({
   featuredProducts,
   popularProducts,
   productsCategories,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <Layout title="Home">
       <Hero
