@@ -36,7 +36,7 @@ export const HeroContainer = styled.section`
   display: flex;
   flex-direction: column;
   row-gap: 70px;
-  @media ${({ theme }) => theme.breakpoints.laptop} {
+  @media (${({ theme }) => theme.breakpoints.laptop}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 70px;
