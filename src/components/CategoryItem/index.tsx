@@ -9,9 +9,9 @@ import { CategoryInfo, CategoryItemContainer } from './styles';
 export default function CategoryItem({ id, name, image }: ProductCategory) {
   return (
     <CategoryItemContainer>
-      <Link href={`category/${id}`} passHref>
+      <Link href={`/category/${id}`} passHref>
         <a>
-          <Image src={image} width={150} height={150} />
+          <Image src={image} width={150} height={150} objectFit="cover" />
         </a>
       </Link>
       <CategoryInfo>

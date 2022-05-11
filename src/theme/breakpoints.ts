@@ -5,7 +5,7 @@ export const size = {
   tablet: 768,
   laptop: 1024,
   laptopL: 1200,
-  desktop: 2560,
+  desktop: 1400,
 };
 
 export default {

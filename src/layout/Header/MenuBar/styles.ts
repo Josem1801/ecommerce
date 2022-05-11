@@ -73,8 +73,21 @@ export const AsideNavBar = styled.aside<{ isMenuActive: boolean }>`
     text-decoration: none;
   }
 `;
-export const MenuContainer = styled.div`
+export const MenuContainer = styled.div<{ fixed?: boolean }>`
+  background: transparent;
+  ${({ fixed, theme }) =>
+    fixed
+      ? `position: fixed;
+        left: 0;
+        right: 0;
+        background: ${theme.colors.white};`
+      : null};
+  transition: 0.3s ease-in-out;
+  z-index: 99;
+`;
+export const Menu = styled.div`
   ${MaxWidth}
+
   overflow: hidden;
   height: 80px;
   display: flex;

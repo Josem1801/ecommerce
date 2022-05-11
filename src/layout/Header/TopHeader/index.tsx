@@ -1,6 +1,8 @@
+/* eslint-disable react/display-name */
 import { HiOutlineMail } from 'react-icons/hi';
 import { BiPhoneCall } from 'react-icons/bi';
-import { IoIosArrowDown } from 'react-icons/io';
+import { forwardRef, HTMLProps } from 'react';
+import Select from 'components/Select';
 import {
   FlexContainer,
   HeaderInfo,
@@ -9,9 +11,9 @@ import {
   MaxWidthContainer,
 } from './styles';
 
-export default function TopHeader() {
-  return (
-    <MaxWidthContainer>
+const TopHeader = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
+  (props, ref) => (
+    <MaxWidthContainer ref={ref}>
       <HeaderInfo>
         <FlexContainer gap={10}>
           <HiOutlineMail />
@@ -25,16 +27,22 @@ export default function TopHeader() {
         </FlexContainer>
       </HeaderInfo>
       <HeaderUserMenu>
-        <FlexContainer gap={13}>
-          English
-          <IoIosArrowDown />
-        </FlexContainer>
+        <Select
+          options={[
+            { value: 'es', name: 'Español' },
+            { value: 'en', name: 'English' },
+          ]}
+        />
+
         <Line />
-        <FlexContainer gap={13}>
-          Currency
-          <IoIosArrowDown />
-        </FlexContainer>
+        <Select
+          options={[
+            { value: 'mxn', name: 'MXN' },
+            { value: 'usd', name: 'USD' },
+          ]}
+        />
       </HeaderUserMenu>
     </MaxWidthContainer>
-  );
-}
+  ),
+);
+export default TopHeader;

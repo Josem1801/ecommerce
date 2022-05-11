@@ -9,13 +9,15 @@ const SearchContainer = styled.form<{
   border: 1px solid ${({ theme }) => theme.colors.galery};
   margin: ${({ margin }) => margin};
   border-radius: 25px;
-  width: ${({ width }) => width}px;
-  height: 50px;
+  width: 100%;
+  max-width: ${({ width }) => width}px;
+
   overflow: hidden;
   input {
     flex: 1;
     border: none;
     height: 100%;
+    width: 100%;
     padding-left: 15px;
     outline: none;
   }
