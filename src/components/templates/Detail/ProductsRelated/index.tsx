@@ -1,9 +1,8 @@
 import FeaturedProductsSlider from 'components/FeaturedProductsSlider';
 import ProductCard from 'components/ProductCard';
+import SectionTitle from 'components/Templates/Home/Shared/SectionTitle/styles';
 import React from 'react';
 import { Product } from 'services/getProductsList';
-
-import SectionTitle from 'components/Templates/Home/Shared/SectionTitle/styles';
 import { GrayContainer, MaxWidthContainer } from 'shared/styles';
 
 export default function ProdutsRelated({
