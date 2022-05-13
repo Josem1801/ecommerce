@@ -30,8 +30,8 @@ export default function MenuBar({ menuBarFixed }: { menuBarFixed?: boolean }) {
         <div>
           <Image
             src={Logo}
-            height="80"
-            width="80"
+            height={80}
+            width={80}
             layout="fixed"
             alt="Ecommerce"
           />

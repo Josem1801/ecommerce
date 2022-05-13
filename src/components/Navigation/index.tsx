@@ -15,7 +15,11 @@ export default function Navigation({ name, routes }: NavigationProps) {
         <FlexContainer gap={16}>
           {routes.map((route, idx) =>
             idx === routes.length - 1 ? (
-              <TextTypography fontVariant="bodyRegular" color="dodgerBlue">
+              <TextTypography
+                fontVariant="bodyRegular"
+                color="dodgerBlue"
+                key={route.name}
+              >
                 {route.name}
               </TextTypography>
             ) : (
