@@ -9,7 +9,7 @@ export const FeaturedSection = styled.section`
   margin: 100px auto;
 `;
 export const SliderContainer = styled.div`
-  margin: 54px 0;
+  margin-bottom: 54px;
   @media (${({ theme }) => theme.breakpoints.mobileL}) {
     ${ProductImage} {
       max-height: 144px;

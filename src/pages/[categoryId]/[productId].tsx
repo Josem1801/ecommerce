@@ -1,6 +1,6 @@
 import Navigation from 'components/Navigation';
 import ProductDetail from 'components/Templates/Detail/ProductDetail';
-import ProductsRelated from 'components/Templates/Detail/ProductsRelated';
+import ProdutsRelated from 'components/Templates/Detail/ProductsRelated';
 import Layout from 'layout/Layout';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import React from 'react';
@@ -67,7 +67,7 @@ export default function Detail({
     <Layout title="Detail">
       <Navigation routes={NavigationRoutes} name={product.title} />
       <ProductDetail product={product} />
-      <ProductsRelated productList={productsRelated} />
+      <ProdutsRelated productList={productsRelated} />
     </Layout>
   );
 }

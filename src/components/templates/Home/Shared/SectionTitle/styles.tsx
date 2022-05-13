@@ -9,5 +9,6 @@ export default function SectionTitle({ children }: { children: ReactNode }) {
 const Title = styled.header<HeaderStylesTypes>`
   color: ${({ theme }) => theme.colors.shark};
   text-align: center;
+  margin-bottom: 54px;
   ${HeaderStyles}
 `;
