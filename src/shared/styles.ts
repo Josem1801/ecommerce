@@ -3,10 +3,32 @@
 /* eslint-disable implicit-arrow-linebreak */
 import styled, { css } from 'styled-components';
 
-export const Button = styled.button<{ secondary?: boolean; center?: boolean }>`
-  width: fit-content;
+export const SocialMediaButton = styled.button`
+  width: 122px;
+  height: 44px;
+  border: 1px solid ${({ theme }) => theme.colors.manatee};
+  background: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.manatee};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+  :hover {
+    background: ${({ theme }) => theme.colors.manatee}90;
+    color: ${({ theme }) => theme.colors.white};
+  }
+`;
+export const Button = styled.button<{
+  secondary?: boolean;
+  center?: boolean;
+  fullWidth?: boolean;
+}>`
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: ${({ theme }) => theme.typography.text.bodySmall.fontSize}px;
   font-weight: ${({ theme }) => theme.typography.text.bodySmall.fontWeight};
   line-height: ${({ theme }) => theme.typography.text.bodySmall.lineHeight}px;
@@ -32,6 +54,27 @@ export const Button = styled.button<{ secondary?: boolean; center?: boolean }>`
   }
 `;
 
+export const GrayContainer = styled.section<{ paddingY?: boolean }>`
+  background: ${({ theme }) => theme.colors.galery};
+  padding: ${({ paddingY }) => (paddingY ? 100 : 0)}px 0;
+`;
+
+export const MaxWidthContainer = styled.section<{ marginY?: boolean }>`
+  width: 100%;
+  margin: ${({ marginY }) => (marginY ? 100 : 0)}px auto;
+  max-width: 510px;
+  padding: 0 15px;
+
+  @media (${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 0;
+    max-width: 690px;
+  }
+  @media (${({ theme }) => theme.breakpoints.laptop}) {
+    padding: 0 15px;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+`;
 export const MaxWidth = css`
   width: 100%;
   margin: 0 auto;
@@ -48,6 +91,7 @@ export const MaxWidth = css`
     padding: 0 20px;
   }
 `;
+
 export interface HeaderStylesTypes {
   fontVariant: 'heading1' | 'heading2' | 'heading3' | 'display1';
 }
@@ -77,6 +121,7 @@ export interface TextStylesType {
     | 'bodyLarge'
     | 'bodyRegular'
     | 'bodySmall'
+    | 'bodySmallRegular'
     | 'bodyTiny';
   color?:
     | 'error'
@@ -98,6 +143,7 @@ export const TextTypography = styled.p<TextStylesType>`
   line-height: ${({ theme, fontVariant }) =>
     theme.typography.text[fontVariant].lineHeight}px;
   color: ${({ theme, color }) => theme.colors[color || 'shark']};
+  text-decoration: none;
 `;
 
 export const TextStyles = css<TextStylesType>`

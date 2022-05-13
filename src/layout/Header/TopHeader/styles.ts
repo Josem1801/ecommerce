@@ -22,12 +22,12 @@ export const Line = styled.div`
 `;
 export const FlexContainer = styled.div<{
   gap?: number | undefined;
-  wrap?: boolean;
+  wrapContent?: boolean;
 }>`
   display: flex;
   align-items: center;
   white-space: nowrap;
-  flex-wrap: ${({ wrap }) => (wrap ? 'wrap' : 'no-wrap')};
+  flex-wrap: ${({ wrapContent }) => (wrapContent ? 'wrap' : 'no-wrap')};
   gap: ${({ gap }) => gap || 1}px;
 `;
 

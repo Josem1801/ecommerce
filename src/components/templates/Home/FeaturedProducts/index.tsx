@@ -3,7 +3,7 @@ import ProductCard from 'components/ProductCard';
 import React from 'react';
 import { Product } from 'services/getProductsList';
 import { Button } from 'shared/styles';
-import SectionTitle from '../Shared/SectionTitle/styles';
+import SectionTitle from '../Shared/SectionTitle';
 import { FeaturedSection, SliderContainer } from './styles';
 
 export default function FeaturedProducts({

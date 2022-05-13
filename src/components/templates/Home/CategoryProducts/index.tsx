@@ -2,7 +2,7 @@ import CategoryItem from 'components/CategoryItem';
 import ItemsGrid from 'components/ItemsGrid';
 import React from 'react';
 import { ProductCategory } from 'services/getProdcutsCategorys';
-import SectionTitle from '../Shared/SectionTitle/styles';
+import SectionTitle from '../Shared/SectionTitle';
 import CateogryProductsContainer from './styles';
 
 export default function CategoryProducts({

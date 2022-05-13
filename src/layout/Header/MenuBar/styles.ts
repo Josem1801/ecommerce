@@ -82,7 +82,7 @@ export const MenuContainer = styled.div<{ fixed?: boolean }>`
         right: 0;
         background: ${theme.colors.white};`
       : null};
-  transition: 0.3s ease-in-out;
+  transition: 0.1s ease-in-out;
   z-index: 99;
 `;
 export const Menu = styled.div`
@@ -94,7 +94,6 @@ export const Menu = styled.div`
   justify-content: space-between;
   column-gap: 50px;
   svg {
-    cursor: pointer;
     font-size: 23px;
   }
   ${SearchContainer} {

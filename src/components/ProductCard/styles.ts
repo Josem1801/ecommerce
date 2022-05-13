@@ -1,5 +1,29 @@
 import styled from 'styled-components';
 
+export const AbsoluteCircleButton = styled.button<{
+  right?: number;
+  selected?: boolean;
+}>`
+  position: absolute;
+  right: ${({ right }) => right || 24}px;
+  top: 22px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: ${({ theme, selected }) =>
+    selected ? theme.colors.shark : theme.colors.white};
+  color: ${({ theme, selected }) =>
+    selected ? theme.colors.white : theme.colors.shark};
+  border: none;
+  border-radius: 50%;
+  z-index: 9;
+  cursor: pointer;
+  :hover {
+    background: ${({ theme }) => theme.colors.galery};
+  }
+`;
+
 export const ProductImage = styled.div`
   position: relative;
   margin-bottom: 22px;
@@ -15,6 +39,7 @@ export const ProductImage = styled.div`
   }
 `;
 export const ProductCardContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

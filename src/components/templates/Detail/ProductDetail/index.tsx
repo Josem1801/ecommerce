@@ -44,7 +44,7 @@ export default function ProductDetail({ product }: { product: Product }) {
         <TextTypography fontVariant="bodyRegular" as="p" color="manatee">
           {product.description}
         </TextTypography>
-        <FlexContainer gap={40} wrap>
+        <FlexContainer gap={40} wrapContent>
           <div>
             <TextTypography fontVariant="bodyTiny" as="p" color="manatee">
               SIZES

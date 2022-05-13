@@ -3,7 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { TextTypography } from 'shared/styles';
-import { ProductCardContainer, ProductImage } from './styles';
+import { FiHeart, FiShoppingCart } from 'react-icons/fi';
+import { FaHeart } from 'react-icons/fa';
+import {
+  AbsoluteCircleButton,
+  ProductCardContainer,
+  ProductImage,
+} from './styles';
 
 interface ProductCardProps {
   image: string;
@@ -11,6 +17,8 @@ interface ProductCardProps {
   price: number;
   categoryName: string;
   id: number;
+  isInCart?: boolean;
+  isInFav?: boolean;
 }
 
 export default function ProductCard({
@@ -19,9 +27,17 @@ export default function ProductCard({
   price,
   id,
   categoryName,
+  isInCart,
+  isInFav,
 }: ProductCardProps) {
   return (
     <ProductCardContainer>
+      <AbsoluteCircleButton right={68} selected={isInFav}>
+        {isInFav ? <FaHeart /> : <FiHeart />}
+      </AbsoluteCircleButton>
+      <AbsoluteCircleButton selected={isInCart}>
+        <FiShoppingCart />
+      </AbsoluteCircleButton>
       <ProductImage>
         <Link href={`/${categoryName}/${id}`} passHref>
           <a>
@@ -40,3 +56,7 @@ export default function ProductCard({
     </ProductCardContainer>
   );
 }
+ProductCard.defaultProps = {
+  isInCart: false,
+  isInFav: false,
+};
