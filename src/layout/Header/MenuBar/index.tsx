@@ -9,6 +9,8 @@ import { FiHeart, FiShoppingCart } from 'react-icons/fi';
 import { RiUser3Line, RiCloseFill } from 'react-icons/ri';
 import { HiMenu } from 'react-icons/hi';
 import Logo from 'public/logo.png';
+import Dropdown from 'components/Dropdown';
+import { Option } from 'components/Dropdown/styles';
 import {
   AsideNavBar,
   IconWithCircle,
@@ -38,19 +40,25 @@ export default function MenuBar({ menuBarFixed }: { menuBarFixed?: boolean }) {
           <ul>
             {navData.map(({ name, route }) => (
               <li key={name}>
-                <Link href={route}>
-                  <a>
-                    {name}
-                    {name === 'Category' && <IoIosArrowDown />}
-                  </a>
-                </Link>
+                {name === 'Category' ? (
+                  <Dropdown
+                    options={[
+                      { name: 'Category', route: 'category' },
+                      { name: 'Electronicos', route: 'Electronics' },
+                    ]}
+                    fixedValue="Category"
+                  />
+                ) : (
+                  <Link href={route} passHref>
+                    <Option>{name}</Option>
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
         </NavBar>
         <AsideNavBar isMenuActive={activeMenu}>
           <RiCloseFill onClick={handleMenu} />
-
           <ul>
             {navData.map(({ name, route }) => (
               <li key={name}>

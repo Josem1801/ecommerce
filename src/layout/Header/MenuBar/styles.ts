@@ -26,7 +26,7 @@ export const NavBar = styled.nav`
   ul {
     display: flex;
     align-items: center;
-    column-gap: 30px;
+    column-gap: 10px;
     padding: 0;
     li {
       list-style: none;
@@ -87,8 +87,7 @@ export const MenuContainer = styled.div<{ fixed?: boolean }>`
 `;
 export const Menu = styled.div`
   ${MaxWidth}
-
-  overflow: hidden;
+  overflow: visible;
   height: 80px;
   display: flex;
   align-items: center;
