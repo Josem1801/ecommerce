@@ -1,9 +1,12 @@
 import FeaturedProductsSlider from 'components/FeaturedProductsSlider';
 import ProductCard from 'components/ProductCard';
-import SectionTitle from 'components/Templates/Home/Shared/SectionTitle';
 import React from 'react';
 import { Product } from 'services/getProductsList';
-import { GrayContainer, MaxWidthContainer } from 'shared/styles';
+import {
+  GrayContainer,
+  HeaderTypography,
+  MaxWidthContainer,
+} from 'shared/styles';
 
 export default function ProdutsRelated({
   productList,
@@ -13,7 +16,9 @@ export default function ProdutsRelated({
   return (
     <GrayContainer paddingY>
       <MaxWidthContainer as="div">
-        <SectionTitle>Featured Products</SectionTitle>
+        <HeaderTypography fontVariant="heading2" as="p">
+          Featured Products
+        </HeaderTypography>
         <FeaturedProductsSlider>
           {productList.map(({ category, id, images, price, title }) => (
             <ProductCard
