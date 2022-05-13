@@ -2,7 +2,7 @@
 import { HiOutlineMail } from 'react-icons/hi';
 import { BiPhoneCall } from 'react-icons/bi';
 import { forwardRef, HTMLProps } from 'react';
-import Select from 'components/Select';
+import Dropdown from 'components/Dropdown';
 import {
   FlexContainer,
   HeaderInfo,
@@ -27,18 +27,20 @@ const TopHeader = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
         </FlexContainer>
       </HeaderInfo>
       <HeaderUserMenu>
-        <Select
+        <Dropdown
+          select
           options={[
-            { value: 'es', name: 'Español' },
-            { value: 'en', name: 'English' },
+            { route: '/es', name: 'Español' },
+            { route: '/en', name: 'English' },
           ]}
         />
 
         <Line />
-        <Select
+        <Dropdown
+          select
           options={[
-            { value: 'mxn', name: 'MXN' },
-            { value: 'usd', name: 'USD' },
+            { route: '/mxn', name: 'MXN' },
+            { route: '/usd', name: 'USD' },
           ]}
         />
       </HeaderUserMenu>

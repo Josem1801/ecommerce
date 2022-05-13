@@ -5,6 +5,8 @@ import styled, { css } from 'styled-components';
 
 export const Button = styled.button<{ secondary?: boolean; center?: boolean }>`
   width: fit-content;
+  display: flex;
+  align-items: center;
   font-size: ${({ theme }) => theme.typography.text.bodySmall.fontSize}px;
   font-weight: ${({ theme }) => theme.typography.text.bodySmall.fontWeight};
   line-height: ${({ theme }) => theme.typography.text.bodySmall.lineHeight}px;
@@ -15,10 +17,12 @@ export const Button = styled.button<{ secondary?: boolean; center?: boolean }>`
   border: 1px solid
     ${({ theme, secondary }) =>
       secondary ? 'transparent' : theme.colors.dodgerBlue};
-  padding: 15px 31px;
+  padding: 20px 31px;
   ${({ center }) => center && 'margin: 0 auto;'}
   border-radius: 4px;
   transition: 0.2s ease-in-out;
+  gap: 15px;
+
   cursor: pointer;
   :hover {
     background: ${({ theme, secondary }) =>
@@ -68,10 +72,23 @@ export const HeaderStyles = css<HeaderStylesTypes>`
 export interface TextStylesType {
   fontVariant:
     | 'xlBody600'
+    | 'xlBody500'
     | 'xlBody400'
     | 'bodyLarge'
     | 'bodyRegular'
-    | 'bodySmall';
+    | 'bodySmall'
+    | 'bodyTiny';
+  color?:
+    | 'error'
+    | 'success'
+    | 'blue'
+    | 'ronchi'
+    | 'dodgerBlue'
+    | 'galery'
+    | 'pantonePurple'
+    | 'manatee'
+    | 'shark'
+    | 'white';
 }
 export const TextTypography = styled.p<TextStylesType>`
   font-size: ${({ theme, fontVariant }) =>
@@ -80,6 +97,7 @@ export const TextTypography = styled.p<TextStylesType>`
     theme.typography.text[fontVariant].fontWeight};
   line-height: ${({ theme, fontVariant }) =>
     theme.typography.text[fontVariant].lineHeight}px;
+  color: ${({ theme, color }) => theme.colors[color || 'shark']};
 `;
 
 export const TextStyles = css<TextStylesType>`

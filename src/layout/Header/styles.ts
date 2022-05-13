@@ -8,8 +8,7 @@ const HeaderContainer = styled.header<TextStylesType>`
   grid-template-columns: 100%;
   height: auto;
   position: relative;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: visible;
   color: ${({ theme }) => theme.colors.manatee};
   ${TextStyles}
   svg {

@@ -1,3 +1,6 @@
+import ProductDetail from 'components/templates/Detail/ProductDetail';
+import ProductsRelated from 'components/templates/Detail/ProductsRelated';
+import Navigation from 'components/templates/Detail/Navigation';
 import Layout from 'layout/Layout';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import React from 'react';
@@ -47,8 +50,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 export default function Detail({
   product,
+  productsRelated,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(product);
-
-  return <Layout title="Detail">{product.title}</Layout>;
+  return (
+    <Layout title="Detail">
+      <Navigation />
+      <ProductDetail product={product} />
+      <ProductsRelated productList={productsRelated} />
+    </Layout>
+  );
 }
