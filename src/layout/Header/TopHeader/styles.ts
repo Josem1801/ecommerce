@@ -20,10 +20,14 @@ export const Line = styled.div`
   background: #1a2224;
   opacity: 0.12;
 `;
-export const FlexContainer = styled.div<{ gap?: number | undefined }>`
+export const FlexContainer = styled.div<{
+  gap?: number | undefined;
+  wrap?: boolean;
+}>`
   display: flex;
   align-items: center;
   white-space: nowrap;
+  flex-wrap: ${({ wrap }) => (wrap ? 'wrap' : 'no-wrap')};
   gap: ${({ gap }) => gap || 1}px;
 `;
 

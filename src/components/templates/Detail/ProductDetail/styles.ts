@@ -4,9 +4,13 @@ import styled from 'styled-components';
 export const ProductDetailContainer = styled.div`
   ${MaxWidth}
   margin: 100px auto;
-  display: grid;
-  grid-template-columns: 500px 1fr;
-  column-gap: 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+  @media (${({ theme }) => theme.breakpoints.laptop}) {
+    display: grid;
+    grid-template-columns: 500px 1fr;
+  }
 `;
 export const ProductInformation = styled.div`
   display: flex;
