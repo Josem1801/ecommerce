@@ -1,6 +1,6 @@
 import FeaturedProductsSlider from 'components/FeaturedProductsSlider';
 import ProductCard from 'components/ProductCard';
-import SectionTitle from 'components/Templates/Home/Shared/SectionTitle/styles';
+import SectionTitle from 'components/Templates/Home/Shared/SectionTitle';
 import React from 'react';
 import { Product } from 'services/getProductsList';
 import { GrayContainer, MaxWidthContainer } from 'shared/styles';

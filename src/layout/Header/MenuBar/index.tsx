@@ -44,7 +44,7 @@ export default function MenuBar({ menuBarFixed }: { menuBarFixed?: boolean }) {
                   <Dropdown
                     options={[
                       { name: 'Category', route: 'category' },
-                      { name: 'Electronicos', route: 'Electronics' },
+                      { name: 'Electronicos', route: '/Electronics' },
                     ]}
                     fixedValue="Category"
                   />

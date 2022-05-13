@@ -2,7 +2,7 @@ import ItemsGrid from 'components/ItemsGrid';
 import ProductCard from 'components/ProductCard';
 import React from 'react';
 import { Product } from 'services/getProductsList';
-import SectionTitle from '../Shared/SectionTitle/styles';
+import SectionTitle from '../Shared/SectionTitle';
 import { MaxWidthContainer, PopularProductsContainer } from './styles';
 
 export default function PopularProducts({
