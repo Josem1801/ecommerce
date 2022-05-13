@@ -108,6 +108,6 @@ const navData = [
   },
   {
     name: 'Shop',
-    route: '/',
+    route: '/shop',
   },
 ];

@@ -1,6 +1,6 @@
+import Navigation from 'components/Navigation';
 import ProductDetail from 'components/templates/Detail/ProductDetail';
 import ProductsRelated from 'components/templates/Detail/ProductsRelated';
-import Navigation from 'components/templates/Detail/Navigation';
 import Layout from 'layout/Layout';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import React from 'react';
@@ -52,9 +52,20 @@ export default function Detail({
   product,
   productsRelated,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const NavigationRoutes = [
+    { name: 'Home', route: '/' },
+    {
+      name: product.category.name,
+      route: `/category/${product.category.name}`,
+    },
+    {
+      name: product.title,
+      route: '',
+    },
+  ];
   return (
     <Layout title="Detail">
-      <Navigation />
+      <Navigation routes={NavigationRoutes} name={product.title} />
       <ProductDetail product={product} />
       <ProductsRelated productList={productsRelated} />
     </Layout>

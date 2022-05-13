@@ -98,6 +98,7 @@ export const TextTypography = styled.p<TextStylesType>`
   line-height: ${({ theme, fontVariant }) =>
     theme.typography.text[fontVariant].lineHeight}px;
   color: ${({ theme, color }) => theme.colors[color || 'shark']};
+  text-decoration: none;
 `;
 
 export const TextStyles = css<TextStylesType>`
