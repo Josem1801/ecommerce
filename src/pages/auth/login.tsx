@@ -1,4 +1,4 @@
-import LoginForm from 'components/Templates/Forms/Login';
+import LoginForm from 'components/templates/Forms/Login';
 import Layout from 'layout/Layout';
 import React from 'react';
 

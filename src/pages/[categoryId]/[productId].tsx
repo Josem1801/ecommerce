@@ -1,6 +1,6 @@
 import Navigation from 'components/Navigation';
-import ProductDetail from 'components/Templates/Detail/ProductDetail';
-import ProdutsRelated from 'components/Templates/Detail/ProductsRelated';
+import ProductDetail from 'components/templates/Detail/ProductDetail';
+import ProdutsRelated from 'components/templates/Detail/ProductsRelated';
 import Layout from 'layout/Layout';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import React from 'react';

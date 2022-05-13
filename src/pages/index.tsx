@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
-import CategoryProducts from 'components/Templates/Home/CategoryProducts';
-import FeaturedProducts from 'components/Templates/Home/FeaturedProducts';
-import Hero from 'components/Templates/Home/Hero';
-import PopularProducts from 'components/Templates/Home/PopularProducts';
+import CategoryProducts from 'components/templates/Home/CategoryProducts';
+import FeaturedProducts from 'components/templates/Home/FeaturedProducts';
+import Hero from 'components/templates/Home/Hero';
+import PopularProducts from 'components/templates/Home/PopularProducts';
 import Layout from 'layout/Layout';
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import getProductsCategories, {

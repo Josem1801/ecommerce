@@ -1,8 +1,8 @@
 import ItemsGrid from 'components/ItemsGrid';
 import Navigation from 'components/Navigation';
 import ProductCard from 'components/ProductCard';
-import Products from 'components/Templates/Shop/Products/styles';
-import Search from 'components/Templates/Shop/Search';
+import Products from 'components/templates/Shop/Products/styles';
+import Search from 'components/templates/Shop/Search';
 import useProducts from 'hooks/use-produts';
 import Layout from 'layout/Layout';
 import { useRouter } from 'next/router';

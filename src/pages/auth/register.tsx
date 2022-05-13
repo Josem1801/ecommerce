@@ -1,4 +1,4 @@
-import RegisterForm from 'components/Templates/Forms/Register';
+import RegisterForm from 'components/templates/Forms/Register';
 import Layout from 'layout/Layout';
 import React from 'react';
 
