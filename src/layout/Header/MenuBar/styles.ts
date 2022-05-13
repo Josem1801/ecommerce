@@ -94,7 +94,6 @@ export const Menu = styled.div`
   justify-content: space-between;
   column-gap: 50px;
   svg {
-    cursor: pointer;
     font-size: 23px;
   }
   ${SearchContainer} {

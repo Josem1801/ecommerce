@@ -74,12 +74,24 @@ export default function MenuBar({ menuBarFixed }: { menuBarFixed?: boolean }) {
         </AsideNavBar>
         <SearchInput />
         <FlexContainer gap={22}>
-          <FiHeart />
-          <IconWithCircle>
-            <FiShoppingCart />
-            <NumberCircle>3</NumberCircle>
-          </IconWithCircle>
-          <RiUser3Line />
+          <Link href="/favorites" passHref>
+            <IconWithCircle as="a">
+              <FiHeart />
+              <NumberCircle>3</NumberCircle>
+            </IconWithCircle>
+          </Link>
+          <Link href="/cart" passHref>
+            <IconWithCircle as="a">
+              <FiShoppingCart />
+              <NumberCircle>3</NumberCircle>
+            </IconWithCircle>
+          </Link>
+          <Link href="/auth/login">
+            <a>
+              <RiUser3Line />
+            </a>
+          </Link>
+
           <HiMenu onClick={handleMenu} className="menu" />
         </FlexContainer>
       </Menu>

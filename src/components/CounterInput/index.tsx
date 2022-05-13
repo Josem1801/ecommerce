@@ -12,6 +12,7 @@ export default function CounterInput() {
       />
       <input
         type="text"
+        min={1}
         value={number}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           setNumber(() => Number(e.target.value))

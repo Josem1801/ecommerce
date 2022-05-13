@@ -20,7 +20,7 @@ export const AbsoluteCircleButton = styled.button<{
   z-index: 9;
   cursor: pointer;
   :hover {
-    opacity: 0.8;
+    background: ${({ theme }) => theme.colors.galery};
   }
 `;
 
