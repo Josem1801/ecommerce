@@ -93,6 +93,9 @@ export const Menu = styled.div`
   align-items: center;
   justify-content: space-between;
   column-gap: 50px;
+  .menu__profile--image {
+    border-radius: 50%;
+  }
   svg {
     font-size: 23px;
   }

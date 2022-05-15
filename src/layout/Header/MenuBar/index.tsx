@@ -11,6 +11,7 @@ import { HiMenu } from 'react-icons/hi';
 import Logo from 'public/logo.png';
 import Dropdown from 'components/Dropdown';
 import { Option } from 'components/Dropdown/styles';
+import useUser from 'hooks/use-user';
 import {
   AsideNavBar,
   IconWithCircle,
@@ -22,8 +23,13 @@ import {
 import { FlexContainer } from '../TopHeader/styles';
 
 export default function MenuBar({ menuBarFixed }: { menuBarFixed?: boolean }) {
+  const { data, error } = useUser();
+  console.log(data);
   const [activeMenu, setActiveMenu] = useState(false);
   const handleMenu = () => setActiveMenu(!activeMenu);
+  if (error) {
+    return null;
+  }
   return (
     <MenuContainer fixed={menuBarFixed}>
       <Menu>
@@ -86,11 +92,26 @@ export default function MenuBar({ menuBarFixed }: { menuBarFixed?: boolean }) {
               <NumberCircle>3</NumberCircle>
             </IconWithCircle>
           </Link>
-          <Link href="/auth/login">
-            <a>
-              <RiUser3Line />
-            </a>
-          </Link>
+          {data ? (
+            <Link href="/profile">
+              <a>
+                <Image
+                  src={data?.user?.user_metadata.avatar_url}
+                  alt={data?.user?.user_metadata.full_name}
+                  width={30}
+                  height={30}
+                  layout="fixed"
+                  className="menu__profile--image"
+                />
+              </a>
+            </Link>
+          ) : (
+            <Link href="/auth/login">
+              <a>
+                <RiUser3Line />
+              </a>
+            </Link>
+          )}
 
           <HiMenu onClick={handleMenu} className="menu" />
         </FlexContainer>

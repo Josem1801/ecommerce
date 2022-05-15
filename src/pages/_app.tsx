@@ -2,17 +2,16 @@ import type { AppProps } from 'next/app';
 import GlobalStyles from 'theme/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'theme';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { SWRConfig } from 'swr';
 
-const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <QueryClientProvider client={queryClient}>
+    <SWRConfig>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Component {...pageProps} />
       </ThemeProvider>
-    </QueryClientProvider>
+    </SWRConfig>
   );
 }
 

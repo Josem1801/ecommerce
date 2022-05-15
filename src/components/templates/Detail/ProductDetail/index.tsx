@@ -6,7 +6,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { Product } from 'services/getProductsList';
 import { Button, TextTypography } from 'shared/styles';
 import colors from 'theme/colors';
-import { FaRegHeart } from 'react-icons/fa';
+import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import CounterInput from 'components/CounterInput';
 import {
   LoveItButton,
@@ -90,7 +90,7 @@ export default function ProductDetail({ product }: { product: Product }) {
             ADD TO CART <FiShoppingCart />
           </Button>
           <LoveItButton onClick={() => setLike(!like)} active={like}>
-            <FaRegHeart fontSize={18} />
+            {like ? <FaHeart /> : <FaRegHeart fontSize={18} />}
           </LoveItButton>
         </FlexContainer>
       </ProductInformation>

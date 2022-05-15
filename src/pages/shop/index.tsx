@@ -17,7 +17,8 @@ export default function Shop() {
   const [search, setSearch] = useState(
     () => (query.categoryId as string) || '',
   );
-  const { data } = useProducts({ search });
+  console.log(search);
+  const { data } = useProducts({ limit: 50 });
 
   return (
     <Layout title="Shop">

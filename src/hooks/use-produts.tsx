@@ -1,5 +1,5 @@
-import { useQuery } from 'react-query';
-import getProductsList, { Product } from 'services/getProductsList';
+import getProductsList from 'services/getProductsList';
+import useSWR from 'swr';
 
 interface UseProductsProps {
   limit?: number;
@@ -7,7 +7,5 @@ interface UseProductsProps {
   search?: string;
 }
 export default function useProducts({ limit, offset }: UseProductsProps) {
-  return useQuery<Product[], Error>('groups', () =>
-    getProductsList({ limit, offset }),
-  );
+  return useSWR('products', () => getProductsList({ limit, offset }));
 }

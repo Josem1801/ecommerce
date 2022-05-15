@@ -32,20 +32,17 @@ export const LoveItButton = styled.button<{ active?: boolean }>`
     active ? theme.colors.white : theme.colors.dodgerBlue};
   background: ${({ theme, active }) =>
     active ? theme.colors.dodgerBlue : theme.colors.white};
-  transition: 0.3s ease-in-out;
   border-radius: 8px;
   cursor: pointer;
-
-  :hover {
-    color: ${({ theme }) => theme.colors.white};
-    background: ${({ theme }) => theme.colors.dodgerBlue};
+  svg {
+    animation: loveit 0.3s;
   }
   @keyframes loveit {
     0% {
       transform: scale(1);
     }
     50% {
-      transform: scale(2);
+      transform: scale(1.5);
     }
     100% {
       transform: scale(1);

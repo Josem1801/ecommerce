@@ -11,6 +11,7 @@ const nextConfig = {
       'encrypted-tbn0.gstatic.com',
       'api.escuelajs.co',
       'placeimg.com',
+      'lh3.googleusercontent.com',
     ],
   },
   compiler: {
