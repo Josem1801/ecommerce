@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/indent */
 import styled from 'styled-components';
 
+export const ErrorMessage = styled.span`
+  position: absolute;
+  left: 5px;
+  bottom: -15px;
+  font-size: ${({ theme }) => theme.typography.text.bodyTiny.fontSize}px;
+  color: ${({ theme }) => theme.colors.error};
+`;
 export const Placeholder = styled.span`
   position: absolute;
   left: 18px;
@@ -14,10 +21,14 @@ export const Placeholder = styled.span`
   border-radius: 5px;
 `;
 
-export const TextFieldContainer = styled.div<{ background?: string }>`
+export const TextFieldContainer = styled.div<{
+  background?: string;
+  error?: boolean;
+}>`
   position: relative;
   width: 100%;
   height: 59px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   border-radius: 4px;
@@ -29,7 +40,9 @@ export const TextFieldContainer = styled.div<{ background?: string }>`
     border: none;
     border: none;
     border-radius: 4px;
-    outline: 1px solid ${({ theme }) => theme.colors.manatee}50;
+    outline: 1px solid
+      ${({ theme, error }) =>
+        error ? theme.colors.error : theme.colors.manatee};
     padding: 18px;
     z-index: 2;
     ::placeholder {
@@ -37,23 +50,29 @@ export const TextFieldContainer = styled.div<{ background?: string }>`
     }
 
     :hover {
-      outline: 1px solid ${({ theme }) => theme.colors.galery};
+      outline: 1px solid
+        ${({ theme, error }) =>
+          error ? theme.colors.error : theme.colors.galery};
     }
     :focus {
-      outline: 2px solid ${({ theme }) => theme.colors.dodgerBlue};
+      outline: 2px solid
+        ${({ theme, error }) =>
+          error ? theme.colors.error : theme.colors.dodgerBlue};
     }
 
     :focus ~ ${Placeholder}, :not(:placeholder-shown) ~ ${Placeholder} {
       top: -15%;
       left: 8px;
       font-size: ${({ theme }) => theme.typography.text.bodySmall.fontSize}px;
+
       z-index: 3;
       background: ${({ background, theme }) =>
         background || theme.colors.white};
       padding: 0 5px;
     }
     :focus ~ ${Placeholder} {
-      color: ${({ theme }) => theme.colors.dodgerBlue};
+      color: ${({ theme, error }) =>
+        error ? theme.colors.error : theme.colors.dodgerBlue};
     }
   }
 `;

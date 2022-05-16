@@ -12,6 +12,7 @@ export interface Product {
   images: string[];
   price: number;
 }
+
 export default function getProductsList({
   limit = 10,
   offset = 0,

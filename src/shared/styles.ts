@@ -3,6 +3,23 @@
 /* eslint-disable implicit-arrow-linebreak */
 import styled, { css } from 'styled-components';
 
+export const Loader = styled.div<{ diameter?: number }>`
+  width: 15px;
+  height: 15px;
+  border: 2px solid ${({ theme }) => theme.colors.manatee};
+  border-bottom-color: ${({ theme }) => theme.colors.white};
+  border-radius: 50%;
+  background: transparent;
+  animation: loaderRotate 1s cubic-bezier(0.42, 0.67, 0.4, 0.65) infinite;
+  @keyframes loaderRotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
 export const SocialMediaButton = styled.button`
   width: 122px;
   height: 44px;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const FormContainer = styled.form`
+const FormContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -10,5 +10,11 @@ const FormContainer = styled.form`
   margin: 0 auto;
   background: white;
   padding: 43px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+  }
 `;
 export default FormContainer;
