@@ -4,7 +4,7 @@ import Layout from 'layout/Layout';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { logout } from 'services/auth';
-import { Button, MaxWidthContainer } from 'shared/styles';
+import { Button, Loader, MaxWidthContainer } from 'shared/styles';
 import { mutate } from 'swr';
 
 const NavigationRoutes = [
@@ -13,21 +13,23 @@ const NavigationRoutes = [
 ];
 export default function Profile() {
   const router = useRouter();
-  const { data } = useUser();
+  const { user, loading } = useUser();
   const handleLogout = async () => {
     mutate('/login/user', null, false);
     await logout();
   };
   useEffect(() => {
-    if (!data) {
+    if (!user) {
       router.push('/');
     }
-  }, [data]);
+  }, [user]);
   return (
     <Layout title="Profile">
       <Navigation routes={NavigationRoutes} name="Profile" />
       <MaxWidthContainer>
-        <Button onClick={handleLogout}>Logout</Button>
+        <Button onClick={handleLogout}>
+          {loading ? <Loader /> : 'Logout'}
+        </Button>
       </MaxWidthContainer>
     </Layout>
   );

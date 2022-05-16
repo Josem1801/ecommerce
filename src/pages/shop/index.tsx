@@ -17,9 +17,8 @@ export default function Shop() {
   const [search, setSearch] = useState(
     () => (query.categoryId as string) || '',
   );
-  console.log(search);
   const { data } = useProducts({ limit: 50 });
-
+  console.log(search);
   return (
     <Layout title="Shop">
       <Navigation name="Shop" routes={NavigationRoutes} />
