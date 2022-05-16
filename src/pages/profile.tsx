@@ -22,7 +22,7 @@ export default function Profile() {
     if (!user) {
       router.push('/');
     }
-  }, [user]);
+  }, [user, router]);
   return (
     <Layout title="Profile">
       <Navigation routes={NavigationRoutes} name="Profile" />
