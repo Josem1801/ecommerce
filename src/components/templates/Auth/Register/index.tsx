@@ -39,19 +39,18 @@ export default function RegisterSection() {
   return (
     <GrayContainer paddingY>
       <MaxWidthContainer>
-        {sendEmail === 'idle' ||
-          (sendEmail === 'error' && (
-            <FormContainer>
-              <RegisterForm handleRegister={handleRegister} />
-              {sendEmail === 'error' && (
-                <ErrorMessage>Ops! Something was wrong, try later</ErrorMessage>
-              )}
-              <TextTypography fontVariant="bodyRegular" color="manatee">
-                Do you already have an account?{' '}
-                <Link href="/auth/login">Login</Link>
-              </TextTypography>
-            </FormContainer>
-          ))}
+        {(sendEmail === 'idle' || sendEmail === 'error') && (
+          <FormContainer>
+            <RegisterForm handleRegister={handleRegister} />
+            {sendEmail === 'error' && (
+              <ErrorMessage>Ops! Something was wrong, try later</ErrorMessage>
+            )}
+            <TextTypography fontVariant="bodyRegular" color="manatee">
+              Do you already have an account?{' '}
+              <Link href="/auth/login">Login</Link>
+            </TextTypography>
+          </FormContainer>
+        )}
         {sendEmail === 'success' && (
           <FormContainer>
             <TextTypography fontVariant="bodyLarge" color="dodgerBlue">
