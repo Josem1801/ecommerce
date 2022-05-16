@@ -23,13 +23,10 @@ import {
 import { FlexContainer } from '../TopHeader/styles';
 
 export default function MenuBar({ menuBarFixed }: { menuBarFixed?: boolean }) {
-  const { data, error } = useUser();
-  console.log(data);
+  const { user } = useUser();
   const [activeMenu, setActiveMenu] = useState(false);
   const handleMenu = () => setActiveMenu(!activeMenu);
-  if (error) {
-    return null;
-  }
+
   return (
     <MenuContainer fixed={menuBarFixed}>
       <Menu>
@@ -92,12 +89,15 @@ export default function MenuBar({ menuBarFixed }: { menuBarFixed?: boolean }) {
               <NumberCircle>3</NumberCircle>
             </IconWithCircle>
           </Link>
-          {data ? (
+          {user ? (
             <Link href="/profile">
               <a>
                 <Image
-                  src={data?.user?.user_metadata.avatar_url}
-                  alt={data?.user?.user_metadata.full_name}
+                  src={
+                    user?.user_metadata.avatar_url ||
+                    'http://uxpanol.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png'
+                  }
+                  alt={user?.user_metadata.full_name}
                   width={30}
                   height={30}
                   layout="fixed"

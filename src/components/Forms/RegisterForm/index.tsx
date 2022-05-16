@@ -3,7 +3,7 @@ import TextField from 'components/TextField';
 import { FlexContainer } from 'layout/Header/TopHeader/styles';
 import React, { ChangeEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { RegisterType, registerUser } from 'services/auth';
+import { RegisterType } from 'services/auth';
 import { Button, HeaderTypography, TextTypography } from 'shared/styles';
 import * as Yup from 'yup';
 
@@ -22,9 +22,14 @@ const schema = Yup.object({
     .required('Repeat password is required')
     .oneOf([Yup.ref('password'), null], 'Password must match'),
 });
-type RegisterTypes = RegisterType & { repeatPassword: string };
-export default function RegisterForm() {
+export type RegisterTypes = RegisterType & { repeatPassword: string };
+export default function RegisterForm({
+  handleRegister,
+}: {
+  handleRegister: (data: RegisterType) => void;
+}) {
   const [showPassword, setShowPassword] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -33,7 +38,7 @@ export default function RegisterForm() {
     reValidateMode: 'onChange',
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: RegisterTypes) => registerUser(data);
+  const onSubmit = async (data: RegisterTypes) => handleRegister(data);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <HeaderTypography fontVariant="heading3">Register</HeaderTypography>

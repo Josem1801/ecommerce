@@ -7,6 +7,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { Button, HeaderTypography, TextTypography } from 'shared/styles';
 import { LoginType, loginUser } from 'services/auth';
 import * as Yup from 'yup';
+import { useRouter } from 'next/router';
 import SpaceBetweenContainer from './styles';
 
 const schema = Yup.object({
@@ -18,6 +19,12 @@ const schema = Yup.object({
 });
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
+  const [formStatus, setFormStatus] = useState({
+    loading: false,
+    error: false,
+    errorMessage: '',
+  });
   const {
     register,
     handleSubmit,
@@ -27,7 +34,27 @@ export default function LoginForm() {
     mode: 'all',
   });
 
-  const onSubmit: SubmitHandler<LoginType> = (data) => loginUser(data);
+  const onSubmit: SubmitHandler<LoginType> = async (data) => {
+    try {
+      setFormStatus((prev) => ({ ...prev, loading: true, errorMessage: '' }));
+      const { error } = await loginUser(data);
+      if (error) {
+        setFormStatus({
+          error: true,
+          loading: false,
+          errorMessage: error.message,
+        });
+        return;
+      }
+      router.push('/');
+    } catch (error) {
+      setFormStatus((prev) => ({
+        ...prev,
+        errorMessage: 'Something went wrong, please try again later',
+        loading: false,
+      }));
+    }
+  };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <HeaderTypography fontVariant="heading3">Login</HeaderTypography>
@@ -39,7 +66,7 @@ export default function LoginForm() {
       <TextField
         placeholder="Password"
         type={showPassword ? 'text' : 'password'}
-        errorMessage={errors.password?.message}
+        errorMessage={formStatus.errorMessage || errors.password?.message}
         {...register('password')}
       />
       <SpaceBetweenContainer>
@@ -65,7 +92,9 @@ export default function LoginForm() {
           </TextTypography>
         </Link>
       </SpaceBetweenContainer>
-      <Button fullWidth>Login</Button>
+      <Button fullWidth disabled={formStatus.loading}>
+        {formStatus.loading ? 'Loading...' : 'Login'}
+      </Button>
     </form>
   );
 }

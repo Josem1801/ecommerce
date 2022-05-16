@@ -13,8 +13,8 @@ import FormContainer from '../shared/styles';
 
 export default function LoginSection() {
   const router = useRouter();
-  const { data } = useUser();
-  if (data) {
+  const { user } = useUser();
+  if (user) {
     router.push('/');
   }
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import supabase from './supabase';
 
 export type RegisterType = {
@@ -6,31 +7,37 @@ export type RegisterType = {
   firstName: string;
   lastName: string;
 };
-export function registerUser({
+export async function registerUser({
   email,
   password,
   firstName,
   lastName,
 }: RegisterType) {
-  supabase.auth.signUp(
-    {
-      email,
-      password,
-    },
-    {
-      data: {
-        first_name: firstName,
-        last_name: lastName,
+  try {
+    const user = await supabase.auth.signUp(
+      {
+        email,
+        password,
       },
-    },
-  );
+      {
+        data: {
+          first_name: firstName,
+          last_name: lastName,
+        },
+      },
+    );
+
+    return user;
+  } catch (error) {
+    console.log(error);
+  }
 }
 export type LoginType = {
   email: string;
   password: string;
 };
-export function loginUser({ email, password }: LoginType) {
-  supabase.auth.signIn({
+export async function loginUser({ email, password }: LoginType) {
+  return supabase.auth.signIn({
     email,
     password,
   });

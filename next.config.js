@@ -12,6 +12,7 @@ const nextConfig = {
       'api.escuelajs.co',
       'placeimg.com',
       'lh3.googleusercontent.com',
+      'uxpanol.com',
     ],
   },
   compiler: {
