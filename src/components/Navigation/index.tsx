@@ -12,12 +12,13 @@ export default function Navigation({ name, routes }: NavigationProps) {
   return (
     <NavigationSection>
       <MaxWidthContainer>
-        <FlexContainer gap={16}>
+        <FlexContainer gap="0 16" wrapContent>
           {routes.map((route, idx) =>
             idx === routes.length - 1 ? (
               <TextTypography
                 fontVariant="bodyRegular"
                 color="dodgerBlue"
+                as="span"
                 key={route.name}
               >
                 {route.name}
