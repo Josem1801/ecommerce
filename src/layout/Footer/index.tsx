@@ -81,10 +81,10 @@ const footerNavigationData = [
   {
     title: 'Company',
     childs: [
-      { name: 'About', route: '/about' },
+      { name: 'About', route: '/' },
       { name: 'Help & Support', route: '/help-and-support' },
-      { name: 'Privacy Policy', route: '/privacy-policy' },
-      { name: 'Terms of Service', route: '/terms' },
+      { name: 'Privacy Policy', route: '/privacy' },
+      { name: 'Terms of Service', route: '/privacy' },
     ],
   },
   {
@@ -93,14 +93,14 @@ const footerNavigationData = [
       { name: 'New Realease', route: '/new-realease' },
       { name: 'Customize', route: '/customize' },
       { name: 'Sales & Discount', route: '/sales-and-discount' },
-      { name: 'Men', route: '/category/men' },
-      { name: 'Women', route: '/category/women' },
+      { name: 'Men', route: '/shop' },
+      { name: 'Women', route: '/shop' },
     ],
   },
   {
     title: 'Account',
     childs: [
-      { name: 'Your bag', route: '/bag' },
+      { name: 'Your bag', route: '/profile' },
       { name: 'Profile', route: '/profile' },
       { name: 'Order Completed', route: '/order-complete' },
       { name: 'Log-Outs', route: '/profile' },

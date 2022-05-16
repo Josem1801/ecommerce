@@ -11,10 +11,13 @@ import {
   TextTypography,
 } from 'shared/styles';
 import SendSvg from 'public/send.svg';
+import { ErrorMessage } from 'components/TextField/styles';
 import FormContainer from '../shared/styles';
 
 export default function RegisterSection() {
-  const [sendEmail, setSendEmail] = useState(false);
+  const [sendEmail, setSendEmail] = useState<'idle' | 'success' | 'error'>(
+    'idle',
+  );
   const router = useRouter();
   const { user } = useUser();
 
@@ -27,24 +30,29 @@ export default function RegisterSection() {
     try {
       const userRegisted = await registerUser(userData);
       if (!userRegisted?.error) {
-        setSendEmail(true);
+        setSendEmail('success');
       }
     } catch (error) {
-      setSendEmail(false);
+      setSendEmail('error');
     }
   };
   return (
     <GrayContainer paddingY>
       <MaxWidthContainer>
-        {!sendEmail ? (
-          <FormContainer>
-            <RegisterForm handleRegister={handleRegister} />
-            <TextTypography fontVariant="bodyRegular" color="manatee">
-              Do you already have an account?{' '}
-              <Link href="/auth/login">Login</Link>
-            </TextTypography>
-          </FormContainer>
-        ) : (
+        {sendEmail === 'idle' ||
+          (sendEmail === 'error' && (
+            <FormContainer>
+              <RegisterForm handleRegister={handleRegister} />
+              {sendEmail === 'error' && (
+                <ErrorMessage>Ops! Something was wrong, try later</ErrorMessage>
+              )}
+              <TextTypography fontVariant="bodyRegular" color="manatee">
+                Do you already have an account?{' '}
+                <Link href="/auth/login">Login</Link>
+              </TextTypography>
+            </FormContainer>
+          ))}
+        {sendEmail === 'success' && (
           <FormContainer>
             <TextTypography fontVariant="bodyLarge" color="dodgerBlue">
               Verification email sent
