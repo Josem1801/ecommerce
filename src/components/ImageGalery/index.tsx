@@ -15,7 +15,11 @@ export default function ImageGalery({ images }: ImageGaleryProps) {
   return (
     <ImageGaleryContainer>
       <Image
-        src={images[imageSelected]}
+        src={
+          images[imageSelected].includes('http')
+            ? images[imageSelected]
+            : 'https://www.azendportafolio.com/static/img/not-found.png'
+        }
         alt="preview"
         layout="responsive"
         width={200}
@@ -29,7 +33,15 @@ export default function ImageGalery({ images }: ImageGaleryProps) {
             onClick={() => imageSelected !== idx && setImageSelected(idx)}
             active={imageSelected !== idx}
           >
-            <Image src={url} width={100} height={100} />
+            <Image
+              src={
+                url.includes('http')
+                  ? url
+                  : 'https://www.azendportafolio.com/static/img/not-found.png'
+              }
+              width={100}
+              height={100}
+            />
           </ImageContainer>
         ))}
       </ImagesContainer>

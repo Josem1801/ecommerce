@@ -41,7 +41,15 @@ export default function ProductCard({
       <ProductImage>
         <Link href={`/${categoryName}/${id}`} passHref>
           <a>
-            <Image src={image} alt={title} layout="fill" />
+            <Image
+              src={
+                image.includes('http')
+                  ? image
+                  : 'https://www.azendportafolio.com/static/img/not-found.png'
+              }
+              alt={title}
+              layout="fill"
+            />
           </a>
         </Link>
       </ProductImage>

@@ -51,7 +51,7 @@ export async function socialMediaLogin(
   });
 }
 
-export const getUserData = () => supabase.auth.user();
+export const getUserData = () => supabase.auth.session();
 
 export async function logout() {
   await supabase.auth.signOut();
