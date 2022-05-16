@@ -13,6 +13,10 @@ const nextConfig = {
       'placeimg.com',
       'lh3.googleusercontent.com',
       'uxpanol.com',
+      'scontent-iad3-1.xx.fbcdn.net',
+      'pbs.twimg.com',
+      'www.bing.com',
+      'www.azendportafolio.com',
     ],
   },
   compiler: {

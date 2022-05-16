@@ -43,8 +43,10 @@ export async function loginUser({ email, password }: LoginType) {
   });
 }
 
-export function socialMediaLogin(provider: 'google' | 'facebook' | 'twitter') {
-  return supabase.auth.signIn({
+export async function socialMediaLogin(
+  provider: 'google' | 'facebook' | 'twitter',
+) {
+  await supabase.auth.signIn({
     provider,
   });
 }
