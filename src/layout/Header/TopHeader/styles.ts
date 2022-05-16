@@ -21,7 +21,7 @@ export const Line = styled.div`
   opacity: 0.12;
 `;
 export const FlexContainer = styled.div<{
-  gap?: number | undefined;
+  gap?: number | string | undefined;
   wrapContent?: boolean;
 }>`
   display: flex;
